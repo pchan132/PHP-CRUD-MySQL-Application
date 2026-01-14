@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <div>
-        < action="add_product.php" method="POST">
+        <form action="add_product.php" method="POST">
             <h2>เพิ่มสินค้าใหม่</h2>
             <label>ชื่อสินค้า:</label><br>
             <input type="text" name="productName" value="<?php echo htmlspecialchars($productName); ?>">
@@ -137,20 +137,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="text" name="productQuantityStock" value="<?php echo htmlspecialchars($productQuantityStock); ?>">
             <span style="color: red;"><?php echo $productQuantityStockErr; ?></span><br><br>
 
-            <!--ลบ ปุ่มเพิ่มสินค้า ยกเลิก -->
+            <!--ปุ่มเพิ่มสินค้า ยกเลิก -->
             <div class="flex">
-                <form action="delete_product.php" method="POST" 
-                    onsubmit="return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบสินค้านี้?');">
-                    <a href="index.php" class="button red">ลบ</a>
-                </form>
-
+                <a href="index.php" class="button red">ยกเลิก</a>
                 <input type="submit" value="เพิ่มสินค้า" class="button green">
-
-                <!-- ปุ่มยกเลิก -->
-                <a href="index.php" class="button gray">ยกเลิก</a>
             </div>
-            
-            
         </form>
     </div>
 </body>
