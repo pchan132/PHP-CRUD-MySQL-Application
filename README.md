@@ -167,6 +167,16 @@ INSERT INTO Products (PrdName, PrdPicture, PrdCategory, PrdDescription, PrdPrice
 | PrdPrice | DECIMAL(10,2) | ราคาสินค้า |
 | PrdQtyStock | INT | จำนวนสินค้าในคลัง |
 
+## รูปภาพตัวอย่างหน้าจอ
+### หน้าแสดงรายการสินค้า
+![Index Page](example_images/index.png)
+### หน้าเพิ่มสินค้า
+![Add Product Page](example_images/add_product.png)
+### หน้าแก้ไขสินค้า
+![Edit Product Page](example_images/edit_product.png)
+### หน้าค้นหาสินค้า
+![Search Product Page](example_images/search_product.png)
+
 ## 📝 License
 
 โปรเจกต์นี้ใช้เพื่อการศึกษาและพัฒนาทักษะเท่านั้น
