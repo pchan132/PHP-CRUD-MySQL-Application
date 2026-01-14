@@ -64,7 +64,9 @@ $connectDB->close();
             <td><?php echo $index ?></td>
              <!-- แสดงชื่อสินค้า -->
             <td>
-                <?php echo htmlspecialchars($product['PrdName']); ?>
+                <!-- เมื่อกดที่ชื่อสินค้า จะลิงก์ไปยังหน้าแก้ไขสินค้า และส่งไอดี ผ่าน URL -->
+                <a href="edit_product.php?id=<?php echo $product['PrdID']; ?>">
+                    <?php echo htmlspecialchars($product['PrdName']); ?></a>
             </td>
             <!-- แสดงรูปภาพสินค้า -->
             <td>
