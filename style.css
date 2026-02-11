@@ -1,25 +1,215 @@
-        .flex {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .button {
-            text-decoration: none;;
-            padding: 8px 16px;
-            border: 1px solid #000;
-        }
-        .red {
-            background-color: red;
-            color: white;
-            border: none;
-        }
-        .green {
-            background-color: green;
-            color: white;
-            border: none;
-        }
-        .gray {
-            background-color: gray;
-            color: white;
-            border: none;
-        }
+:root {
+    --primary-color: #4a90e2; /* Modern blue */
+    --secondary-color: #f5f6fa; /* Light background */
+    --text-color: #2d3436;
+    --border-color: #dfe6e9;
+    --success-color: #00b894;
+    --danger-color: #d63031;
+    --warning-color: #fdcb6e;
+    --background-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --input-focus: #74b9ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background-gradient);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container for centering content */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box; /* To ensure padding doesn't affect width */
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button & Link Styles */
+.button, button, a.button, input[type="submit"], input[type="button"], input[type="reset"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+    border: none;
+    outline: none;
+    /* Ensure input elements don't have default browser styles messing up */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Specific Button Colors */
+.button.green, button[type="submit"], input[type="submit"] {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.button.red {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.button.gray {
+    background-color: #636e72;
+    color: white;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    opacity: 0.9;
+}
+
+.flex {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* To clip the corners for the first/last rows */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f1f2f6;
+}
+
+img {
+    border-radius: 4px;
+    max-width: 100px;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+/* Search Bar Area */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    margin-bottom: 0;
+    width: 250px;
+}
+
+.add-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #357abd;
+}
+
+span[style="color: red;"] {
+    font-size: 12px;
+    margin-top: 2px;
+    display: block;
+}

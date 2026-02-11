@@ -60,6 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $productPriceErr = "กรุณากรอกราคาสินค้า";
     } elseif (!is_numeric($productPrice) || $productPrice < 0){
         $productPriceErr = "กรุณากรอกราคาสินค้าเป็นตัวเลขที่มากกว่าหรือเท่ากับ 0";
+    } elseif (strlen($productPrice) > 4){
+        $productPriceErr = "ราคาสินค้าต้องไม่เกิน 4 ตัวเลข";
     }
 
     // ตรวจสอบ ค่าว่าง ประเภทข้อมูลของค่าที่กรอกในฟอร์ม และจำนวนข้อมูล จำนวนสินค้า
@@ -69,6 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $productQuantityStockErr = "กรุณากรอกจำนวนสินค้าเป็นตัวเลขที่มากกว่าหรือเท่ากับ 0";
     } elseif (!filter_var($productQuantityStock, FILTER_VALIDATE_INT)){
         $productQuantityStockErr = "กรุณากรอกจำนวนสินค้าเป็นจำนวนเต็ม";
+    } elseif (strlen($productQuantityStock) > 3){
+        $productQuantityStockErr = "จำนวนสินค้าต้องไม่เกิน 3 ตัวเลข";
     }
     
     // ถ้าไม่มี Error เกิดขึ้น ให้ทำการบันทึกข้อมูลลงฐานข้อมูล
@@ -110,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <form action="add_product.php" method="POST">
             <h2>เพิ่มสินค้าใหม่</h2>
             <label>ชื่อสินค้า:</label><br>

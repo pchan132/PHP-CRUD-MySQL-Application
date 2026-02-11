@@ -89,8 +89,8 @@ require_once 'dbConfig.php';
         $productPriceErr = "กรุณากรอกราคาสินค้า";
     } elseif (!is_numeric($productPrice) || $productPrice < 0){
         $productPriceErr = "กรุณากรอกราคาสินค้าเป็นตัวเลขที่มากกว่าหรือเท่ากับ 0";
-    } elseif (strlen($productQuantityStock) > 4){
-        $productQuantityStockErr = "ต้องไม่เกิน 4 ตัว";
+    } elseif (strlen($productPrice) > 4){
+        $productPriceErr = "ต้องไม่เกิน 4 ตัว";
     }
 
     // ตรวจสอบ ค่าว่าง ประเภทข้อมูลของค่าที่กรอกในฟอร์ม และจำนวนข้อมูล จำนวนสินค้า
@@ -115,7 +115,7 @@ require_once 'dbConfig.php';
             );
 
             // ผูกค่ากับพารามิเตอร์ในคำสั่ง SQL
-            $stmt->bind_param("ssssiii", $productName, $productPicture, $productCategory, $productDescription, $productPrice, $productQuantityStock, $productId);
+            $stmt->bind_param("ssssdii", $productName, $productPicture, $productCategory, $productDescription, $productPrice, $productQuantityStock, $productId);
 
             // รันคำสั่ง SQL
             $stmt->execute();
@@ -138,6 +138,7 @@ require_once 'dbConfig.php';
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h2> แก้ไขสินค้า ID <?= $productId ?> </h2>
 
     <form method="POST" action="edit_product.php?id=<?= $productId ?> ">
@@ -177,5 +178,6 @@ require_once 'dbConfig.php';
                 <a href="index.php" class="button gray">ยกเลิก</a>
             </div>
     </form>
+    </div>
 </body>
 </html>
